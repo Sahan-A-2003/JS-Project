@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Playwrite+AU+SA:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <style>
+    *{
+      margin: 0;
+      padding:0;
+      box-sizing: border-box;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    .quactions{
+      width: 100%;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 30px;
+      justify-content: center;
+    }
+    h1{
+      font-size: 42px;
+      font-weight: 600;
+      font-family:'Playwrite Australia SA', Arial, sans-serif ;
+      margin-bottom: 50px;
+    }
+    .quaction{
+      width: 100%;
+      max-width: 600px;
+      border: 0;
+      outline: 0;
+      padding:10px;
+      position: relative;
+      border-radius: 6px;
+      box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+      margin-bottom: 20px;
+    }
+    .quaction-visible{
+      width: 100%;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: default;
+      z-index: 20;
+    }
+    .showe{
+      width: 25px;
+      transition: transform .2s ease-in-out;
+      cursor: pointer;
+    }
+    .showe:hover{
+      transform: scale(1.20);
+    }
+    h2{
+      font-size: 20px;
+      font-weight: 500;
+    }
+    .answer{
+      padding: 20px;
+      display: none;
+      opacity: 0;
+      visibility: hidden;
+    }
+    p{
+      font-size: 16px;
+      font-weight: 400;
+    }
+    .visible{
+      display:block;
+      opacity: 1;
+      visibility: visible;
+    }
+    .close{
+      display: none;
+      width: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="quactions">
+    <h1>General Questions</h1>
+    <div class="quaction">
+      <div class="quaction-visible">
+        <h2>What is Artificial Intelligence (AI)?</h2>
+        <img class="showe" src="./down.png" alt="Show">
+        <img class="close" src="./up.png" alt="Close" style="display: none;">
+      </div>
+      <div class="answer">
+        <p>AI refers to the simulation of human intelligence processes by machines, especially computer systems. It includes learning (acquiring data and rules for using it), reasoning (using rules to draw conclusions), and self-correction.</p>
+      </div>
+    </div>
+    <div class="quaction">
+      <div class="quaction-visible">
+        <h2>Will AI replace human jobs?</h2>
+        <img class="showe" src="./down.png" alt="Show">
+        <img class="close" src="./up.png" alt="Close" style="display: none;">
+      </div>
+      <div class="answer">
+        <p>AI may automate certain tasks, potentially reducing the need for specific roles. However, it often creates new job opportunities in areas like AI development, data analysis, and system management. Many experts believe AI will augment human work rather than completely replace it.</p>
+      </div>
+    </div>
+    <div class="quaction">
+      <div class="quaction-visible">
+        <h2>How does AI learn and improve over time?</h2>
+        <img class="showe" src="./down.png" alt="Show">
+        <img class="close" src="./up.png" alt="Close" style="display: none;">
+      </div>
+      <div class="answer">
+        <p>AI learns and improves through a process called machine learning, which involves feeding data into algorithms to identify patterns and make predictions.</p>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    const showeBtns = document.querySelectorAll('.showe');
+    const closeBtns = document.querySelectorAll('.close');
+    const answers = document.querySelectorAll('.answer');
+
+    showeBtns.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        answers[index].classList.add('visible'); 
+        btn.style.display = 'none'; 
+        closeBtns[index].style.display = 'block'; 
+      });
+    });
+
+    closeBtns.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        answers[index].classList.remove('visible'); 
+        btn.style.display = 'none'; 
+        showeBtns[index].style.display = 'block'; 
+      });
+    });
+  </script>
+</body>
+
+</html>
